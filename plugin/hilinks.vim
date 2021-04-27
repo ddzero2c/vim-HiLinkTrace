@@ -8,13 +8,6 @@
 "  NOTE:        This script requires Vim 6.0 (or later)
 "               Works best with Vim 7.1 with patch#215
 "
-"  Usage: {{{1
-"
-"  \hlt   : will reveal a linked list of highlighting from the top-level down
-"           to the bottom level.
-"           You may redefine the leading character using "let mapleader= ..."
-"           in your <.vimrc>.
-"
 "  History: {{{1
 "   3 04/07/05 :	* cpo&vim supported
 "   2 07/14/04 :	* register a is used as before but now its original contents are restored
@@ -42,10 +35,6 @@ let s:HLTmode       = 0
 
 " ---------------------------------------------------------------------
 " Public Interface: {{{1
-if !hasmapto('<Plug>HiLinkTrace')
-  map <s-F10>  <Leader>hlt
-  map <unique> <Leader>hlt <Plug>HiLinkTrace
-endif
 map <script> <Plug>HiLinkTrace	:call <SID>HiLinkTrace(0)<CR>
 com! -bang	HLT					call s:HiLinkTrace(<bang>0)
 com!		HLTm				call s:HiLinkTrace(1)
